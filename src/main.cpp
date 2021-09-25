@@ -17,16 +17,21 @@
 using namespace std;
 
 
-
+const string STUDENT_GRADE_EXPORTED_FILE_NAME = "Student Grades";
+const string STUDENT_GRADE_EXPORTED_FILE_FORMAT = ".csv";
+const char FILE_SEPARATOR = '/';
+const char CSV_SEPERATOR = ',';
 const char DELIMETER = ' ';
 
-typedef struct Student {
+
+struct Student {
 	string student_name;
 	unsigned int number_of_exam_scores = 0;
 	unsigned int *exam_scores;
 	float average_exam_score = 0.00f;
 	string letter_grade;
 };
+
 
 string generate_student_letter_grade(Student &student) {
 	float average_score = student.average_exam_score;
@@ -73,13 +78,13 @@ unsigned int find_student_name_max_length(const Student students[],
 	return student_name_max_length;
 }
 
+const string STUDENT_NAME_HEADER = "Student Name";
+const string AVERAGE_EXAM_SCORE_HEADER = "Average Exam Score";
+const string LETTER_GRADE_HEADER = "Grade";
 
 
 void print_students_to_console(const Student students[], unsigned int number_of_students)
 {
-	const string STUDENT_NAME_HEADER = "Student Name";
-	const string AVERAGE_EXAM_SCORE_HEADER = "Average Exam Score";
-	const string letter_grade_HEADER = "Grade";
 
 	const char TABLE_HOZIONTAL_BORDER_CHARACTER = '-';
 	const char TABLE_VERTICAL_BORDER_CHARACTER = '|';
@@ -96,7 +101,7 @@ void print_students_to_console(const Student students[], unsigned int number_of_
 
 	cout << TABLE_VERTICAL_BORDER_CHARACTER << left << setw(student_name_max_length) << STUDENT_NAME_HEADER;
 	cout << TABLE_VERTICAL_BORDER_CHARACTER << left << setw(AVERAGE_SCORE_WIDTH) << AVERAGE_EXAM_SCORE_HEADER;
-	cout << TABLE_VERTICAL_BORDER_CHARACTER << left << setw(LETTER_GRADE_WIDTH) << letter_grade_HEADER << TABLE_VERTICAL_BORDER_CHARACTER;
+	cout << TABLE_VERTICAL_BORDER_CHARACTER << left << setw(LETTER_GRADE_WIDTH) << LETTER_GRADE_HEADER << TABLE_VERTICAL_BORDER_CHARACTER;
 	cout << endl;
 
 	//cout << setfill(TABLE_HOZIONTAL_BORDER_CHARACTER) << setw(TOTAL_TABLE_WIDTH) << TABLE_HOZIONTAL_BORDER_CHARACTER << endl;
@@ -143,7 +148,7 @@ Student extract_student_from_line(string &studentRecord) {
 	}
 
 	int total_score = 0;
-	for (unsigned int i=0; i<student.number_of_exam_scores; i++){
+	for (unsigned int i=0; i<student.number_of_exam_scores; i++) {
 		total_score += student.exam_scores[i];
 	}
 
@@ -154,19 +159,15 @@ Student extract_student_from_line(string &studentRecord) {
 	return student;
 }
 
-
-void export_student_grades_to_console(const string &file_name)
-{
+unsigned int read_student_exam_scores_from_file(const string &file_path, Student students[]) {
 	ifstream inData;
 
-	inData.open(file_name);
+	inData.open(file_path);
 
 	string line;
 
 	unsigned int student_index = 0;
 	unsigned int number_of_students = 0;
-
-	Student students[100];
 
 	while (getline(inData, line)) {
 		students[student_index] = extract_student_from_line(line);
@@ -177,14 +178,59 @@ void export_student_grades_to_console(const string &file_name)
 
 	inData.close();
 
+	return number_of_students;
+}
+
+void export_student_grades_to_console(const string &file_path)
+{
+	Student students[100];
+
+	int number_of_students = read_student_exam_scores_from_file(file_path, students);
+
 	print_students_to_console(students, number_of_students);
+}
+
+
+
+
+void write_student_grades_to_file (const Student students[], unsigned int number_of_students, const string &export_directory) {
+
+
+	ofstream exportedFile;
+
+	exportedFile.open(export_directory + FILE_SEPARATOR + STUDENT_GRADE_EXPORTED_FILE_NAME + STUDENT_GRADE_EXPORTED_FILE_FORMAT);
+
+	cout << "Start exporting student grades to the export folder: " << export_directory << endl;;
+
+	exportedFile << quoted(STUDENT_NAME_HEADER) << CSV_SEPERATOR << quoted(AVERAGE_EXAM_SCORE_HEADER) << CSV_SEPERATOR << LETTER_GRADE_HEADER << endl;
+
+	for (unsigned int i = 0; i < number_of_students; i++) {
+		exportedFile << quoted(students[i].student_name) <<  CSV_SEPERATOR << fixed << setprecision(2) << students[i].average_exam_score << CSV_SEPERATOR << quoted(students[i].letter_grade) << endl;
+	}
+
+	cout << "Exported successfully";
+
+	exportedFile.close();
+
+}
+
+
+void export_student_grades_to_directory(const string &file_path, const string &export_directory)
+{
+	Student students[100];
+
+	int number_of_students = read_student_exam_scores_from_file(file_path, students);
+
+	write_student_grades_to_file(students, number_of_students, export_directory);
 }
 
 int main() {
 
 	string student_exam_scores_raw_file = "resource/grades_Section1.txt";
 
-	export_student_grades_to_console(student_exam_scores_raw_file);
+	string export_folder = "D:\\ThuanBach\\UR Computer Science\\CS700\\CS700Assignment1\\resource";
+
+	export_student_grades_to_directory(student_exam_scores_raw_file, export_folder);
 
 	return 0;
 }
