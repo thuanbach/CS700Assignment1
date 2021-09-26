@@ -14,37 +14,19 @@
 using namespace std;
 
 
-const unsigned int MAX_STUDENT_LINE_LENGTH = 1000;
-const unsigned int MAX_EXAM_LENGTH = 100;
-
-
 const string STUDENT_NAME_HEADER = "Student Name";
-const string AVERAGE_EXAM_SCORE_HEADER = "Average Exam Score";
-const string LETTER_GRADE_HEADER = "Grade";
-const string NUMBER_OF_SCORE_HEADER = "Number of Exam Scores";
 const string EXAM_HEADER = "Exam";
 const string SCORE_HEADER = "Score";
 const string GRADE_HEADER = "Grade";
 
-const string STUDENT_GRADE_EXPORTED_FILE_NAME = "Student_Grades";
-const string STUDENT_GRADE_EXPORTED_FILE_FORMAT = ".csv";
-
-const char FILE_SEPARATOR = '/';
-const char CSV_SEPARATOR = ',';
 const char DELIMITER = ' ';
 const char BLANK_CHARACTER = ' ';
 const char PLUS_CHARACTER = '+';
 
 const char TABLE_HORIZONTAL_BORDER_CHARACTER = '-';
 const char TABLE_VERTICAL_BORDER_CHARACTER = '|';
-
-const unsigned int AVERAGE_SCORE_WIDTH = 18;
-const unsigned int AVERAGE_SCORE_LEFT_PADDING_WIDTH = 7;
-const unsigned int LETTER_GRADE_WIDTH = 5;
-const unsigned int LETTER_GRADE_LEFT_PADDING_WIDTH = 2;
 const unsigned int EXAM_HEADER_PADDING_WIDTH = 3;
 
-const unsigned int TOTAL_VERTICAL_BORDER_WIDTH = 2;
 const unsigned int NUMBER_OF_BORDER_PER_EXAM = 2;
 const unsigned int NUMBER_OF_BORDER_PER_EXAM_HEADER = 1;
 
@@ -59,11 +41,10 @@ struct StudentsData {
 };
 
 
-void initiate_students_data(StudentsData &studentsData, const unsigned int number_of_students,
-                            const unsigned int number_of_exams) {
+void initiate_students_data(StudentsData &studentsData) {
 
-    studentsData.number_of_students = number_of_students;
-    studentsData.number_of_exams = number_of_exams;
+    unsigned int number_of_students = studentsData.number_of_students;
+    unsigned int number_of_exams = studentsData.number_of_exams;
 
     studentsData.student_names = new string[number_of_students];
 
@@ -108,8 +89,6 @@ void parse_a_student_from_raw_text_line(string &studentRawText,
             examIndex++;
         }
     }
-    cout << endl;
-
 }
 
 /**
@@ -130,11 +109,24 @@ char generate_grade_letter(const unsigned int student_exam_score, const float av
     }
 }
 
+void parse_number_of_students_and_exams(const string firstLine, StudentsData &studentData) {
+
+    stringstream ss(firstLine);
+    string word;
+
+    int index = 0;
+    while (getline(ss, word, DELIMITER)) {
+        int numericToken = atoi(word.c_str());
+        if (index == 0) {
+            studentData.number_of_students = numericToken;
+        } else {
+            studentData.number_of_exams = numericToken;
+        }
+        index++;
+    }
+}
+
 StudentsData read_student_exam_scores_from_file(const string &file_path) {
-
-
-    unsigned int NUMBER_OF_STUDENTS = 25;
-    unsigned int NUMBER_OF_EXAMS = 10;
 
     StudentsData studentsData;
 
@@ -146,7 +138,8 @@ StudentsData read_student_exam_scores_from_file(const string &file_path) {
     string firstLine;
     getline(inData, firstLine);
 
-    initiate_students_data(studentsData, NUMBER_OF_STUDENTS, NUMBER_OF_EXAMS);
+    parse_number_of_students_and_exams(firstLine, studentsData);
+    initiate_students_data(studentsData);
 
 
     string studentRawText;
@@ -248,6 +241,7 @@ void print_students_data_to_console(StudentsData studentsData) {
         }
         cout << endl;
     }
+
     cout << PLUS_CHARACTER << setfill(TABLE_HORIZONTAL_BORDER_CHARACTER) << setw(TOTAL_TABLE_WIDTH)
          << TABLE_HORIZONTAL_BORDER_CHARACTER << PLUS_CHARACTER << setfill(BLANK_CHARACTER) << endl;
 }
