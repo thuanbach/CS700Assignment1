@@ -1,4 +1,4 @@
-/*
+/**
  * grade_reporting_v2.cpp
  *
  *  Created on: Sep 26, 2021
@@ -34,13 +34,38 @@ const unsigned int NUMBER_OF_BORDER_PER_EXAM_HEADER = 1;
 struct StudentsData {
     unsigned int number_of_students;
     unsigned int number_of_exams;
+
+    /**
+     * An array of string objects to store names of students
+     */
     string *student_names;
+
+    /**
+     * A two-dimensional array to store scores of exams of students.
+     * The row subscript is the student number, and the column subscript is the exam number
+     */
     unsigned int **exam_scores;
+
+    /**
+     * A two-dimensional array to store grades of exams of students.
+     * The row subscript is the student number, and the column subscript is the exam number
+     */
     char **exam_grades;
+
+    /**
+     * An array of float number to store the average score of each exam.
+     */
     float *average_scores_per_exam;
 };
 
-
+/**
+ * Initiate StudentsData's arrays based on the number students and the number of exams.
+ *
+ * Parameter(s)
+ * <1> An StudentsData object
+ *
+ * Returns: N/A
+ */
 void initiate_students_data(StudentsData &studentsData) {
 
     unsigned int number_of_students = studentsData.number_of_students;
@@ -60,6 +85,16 @@ void initiate_students_data(StudentsData &studentsData) {
 }
 
 
+/**
+ * Parse a student' information from a text, and update to StudentsData at the provided index.
+ *
+ * Parameter(s)
+ * <1> A string object presenting a student information in the text file
+ * <2> A StudentsData object
+ * <3> The student index in the file.
+ *
+ * Returns: N/A
+ */
 void parse_a_student_from_raw_text_line(string &studentRawText,
                                         StudentsData &studentsData,
                                         unsigned int student_index) {
@@ -92,7 +127,13 @@ void parse_a_student_from_raw_text_line(string &studentRawText,
 }
 
 /**
+ * Generate the exam grade
  *
+ * Parameter(s)
+ * <1> The score of an exam of a student
+ * <2> The average score of the exam among students
+ *
+ * Returns: A character presenting the exam grade
  */
 char generate_grade_letter(const unsigned int student_exam_score, const float average_exam_score) {
 
@@ -108,6 +149,16 @@ char generate_grade_letter(const unsigned int student_exam_score, const float av
         return 'F';
     }
 }
+
+/**
+ * Parse number of students and exams from the first line of the text file, and update them to StudentsData object
+ *
+ * Parameter(s)
+ * <1> The first line of the input text
+ * <2> A StudentsData object
+ *
+ * Returns: N/A
+ */
 
 void parse_number_of_students_and_exams(const string firstLine, StudentsData &studentData) {
 
@@ -126,6 +177,14 @@ void parse_number_of_students_and_exams(const string firstLine, StudentsData &st
     }
 }
 
+/**
+ * Parse a text file and return a StudentsData object
+ *
+ * Parameter(s)
+ * <1> Path to the text file
+ *
+ * Returns: A StudentsData object
+ */
 StudentsData read_student_exam_scores_from_file(const string &file_path) {
 
     StudentsData studentsData;
@@ -178,6 +237,14 @@ StudentsData read_student_exam_scores_from_file(const string &file_path) {
     return studentsData;
 }
 
+/**
+ * Find the max length among names of students
+ *
+ * Parameter(s)
+ * <1> A StudentsData object
+ *
+ * Returns: The max length among names of students
+ */
 unsigned int find_student_name_max_length(StudentsData studentsData) {
 
     unsigned int student_name_max_length = 0;
@@ -191,7 +258,14 @@ unsigned int find_student_name_max_length(StudentsData studentsData) {
     return student_name_max_length;
 }
 
-
+/**
+ * Print each exam's score and letter grade for each student to the console in table format.
+ *
+ * Parameter(s)
+ * <1> A StudentsData object
+ *
+ * Returns: N/A
+ */
 void print_students_data_to_console(StudentsData studentsData) {
     const unsigned int SCORE_COLUMN_WITH = 5;
     const unsigned int GRADE_COLUMN_WITH = 5;
@@ -246,6 +320,17 @@ void print_students_data_to_console(StudentsData studentsData) {
          << TABLE_HORIZONTAL_BORDER_CHARACTER << PLUS_CHARACTER << setfill(BLANK_CHARACTER) << endl;
 }
 
+/**
+ * Read a text file mentioned in the grade reporting.h, and calculate the average score for each exam, and then based
+ * on the average score of each exam, it will calculate the student's letter grade for the exam. Finally, print each
+ * exam's score and letter grade for each student to the console in table format.
+ *
+ * Parameter(s)
+ * <1> A path to the text file.
+ *
+ * Returns: N/A
+ *
+ */
 void export_student_grades_v2_to_console(const string &file_path) {
     StudentsData studentsData = read_student_exam_scores_from_file(file_path);
     print_students_data_to_console(studentsData);

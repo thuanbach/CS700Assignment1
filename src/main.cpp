@@ -7,10 +7,10 @@
  */
 
 #include <iostream>
+#include "grade_reporting_v2.h"
 
 using namespace std;
 
-void export_student_grades_v2_to_console(const string &file_path);
 
 int main() {
 
