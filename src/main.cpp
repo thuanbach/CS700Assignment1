@@ -7,19 +7,16 @@
  */
 
 #include <iostream>
-#include "grade_reporting.h"
 
 using namespace std;
 
+void export_student_grades_v2_to_console(const string &file_path);
+
 int main() {
 
-	string student_exam_scores_raw_file = "resource/grades_Section1.txt";
+	string student_exam_scores_raw_file = "resource/grades_Section2.txt";
 
-	string export_folder = "resource";
-
-	export_student_grades_to_console(student_exam_scores_raw_file);
-
-	export_student_grades_to_directory(student_exam_scores_raw_file, export_folder);
+	export_student_grades_v2_to_console(student_exam_scores_raw_file);
 
 	return 0;
 }
