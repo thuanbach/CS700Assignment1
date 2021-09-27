@@ -30,6 +30,9 @@ const unsigned int EXAM_HEADER_PADDING_WIDTH = 3;
 const unsigned int NUMBER_OF_BORDER_PER_EXAM = 2;
 const unsigned int NUMBER_OF_BORDER_PER_EXAM_HEADER = 1;
 
+const unsigned int SCORE_COLUMN_WITH = 5;
+const unsigned int GRADE_COLUMN_WITH = 5;
+
 
 struct StudentsData {
     unsigned int number_of_students;
@@ -141,9 +144,9 @@ char generate_grade_letter(const unsigned int student_exam_score, const float av
         return 'A';
     } else if (student_exam_score > average_exam_score + 5) {
         return 'B';
-    } else if (student_exam_score > average_exam_score - 5) {
+    } else if (student_exam_score >= average_exam_score - 5) {
         return 'C';
-    } else if (student_exam_score > average_exam_score - 15) {
+    } else if (student_exam_score >= average_exam_score - 15) {
         return 'D';
     } else {
         return 'F';
@@ -267,8 +270,7 @@ unsigned int find_student_name_max_length(StudentsData studentsData) {
  * Returns: N/A
  */
 void print_students_data_to_console(StudentsData studentsData) {
-    const unsigned int SCORE_COLUMN_WITH = 5;
-    const unsigned int GRADE_COLUMN_WITH = 5;
+
 
 
     unsigned int student_name_max_length = find_student_name_max_length(studentsData);
@@ -288,7 +290,7 @@ void print_students_data_to_console(StudentsData studentsData) {
         cout << left << setw(EXAM_HEADER_PADDING_WIDTH) << BLANK_CHARACTER
              << setw(SCORE_COLUMN_WITH + GRADE_COLUMN_WITH + NUMBER_OF_BORDER_PER_EXAM_HEADER -
                      EXAM_HEADER_PADDING_WIDTH)
-             << EXAM_HEADER + BLANK_CHARACTER + to_string(i) << TABLE_VERTICAL_BORDER_CHARACTER;
+             << EXAM_HEADER + BLANK_CHARACTER + to_string(i+1) << TABLE_VERTICAL_BORDER_CHARACTER;
     }
     cout << endl;
     cout << PLUS_CHARACTER << setfill(TABLE_HORIZONTAL_BORDER_CHARACTER) << setw(TOTAL_TABLE_WIDTH)

@@ -1,0 +1,22 @@
+CS700Assignment1 - Section 2
+
+The purpose of this file is to give a short description to files in the submission folder and the link to the source file
+in Github repository.
+
+	[1] src/main.cpp:
+	    * Description: The main application of the program. When running, it executes two test cases defined in the resource folder of project
+	    * Link to repository: https://github.com/thuanbach/CS700Assignment1/blob/feature/grading-each-exam/src/main.cpp
+	
+	[2]. src/grade_reporting_v2.h
+	    * Description: The file defines the interface of functions required in the section 2 of the requirement.
+	    * Link to repository: https://github.com/thuanbach/CS700Assignment1/blob/feature/grading-each-exam/src/grade_reporting_v2.h
+	
+	[3]. src/grade_reporting_v2.cpp
+	    * Description: Implement the interface defined in grade_reporting_v2.h
+    	* Link to repository: https://github.com/thuanbach/CS700Assignment1/blob/feature/grading-each-exam/src/grade_reporting_v2.cpp
+	
+	[4] TestRun1.png: The screenshot of the test run 1.
+	
+	[5] TestRun2.png: The screenshot of the test run 2.
+	
+	[6] GitHub-CS700Assignment1-Section2.png: The screenshot of the repository of the program.

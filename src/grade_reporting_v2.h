@@ -51,7 +51,7 @@ using namespace std;
  *
  * Then, the console output will be like below.
  *    +--------------------------------------------+
- *    |                    |   Exam 0  |   Exam 1  |
+ *    |                    |   Exam 1  |   Exam 2  |
  *    +--------------------------------------------+
  *    |Student Name        |Score|Grade|Score|Grade|
  *    +--------------------------------------------+
