@@ -1,0 +1,232 @@
+\hypertarget{grade__reporting__v2_8cpp}{}\doxysection{src/grade\+\_\+reporting\+\_\+v2.cpp File Reference}
+\label{grade__reporting__v2_8cpp}\index{src/grade\_reporting\_v2.cpp@{src/grade\_reporting\_v2.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_students_data}{Students\+Data}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{grade__reporting__v2_8cpp_a60ad81d646eac73bd4248ee72f3997a2}{initiate\+\_\+students\+\_\+data}} (\mbox{\hyperlink{struct_students_data}{Students\+Data}} \&students\+Data)
+\item 
+void \mbox{\hyperlink{grade__reporting__v2_8cpp_aa28e95e976d3b09cd9f722a6c7e82090}{parse\+\_\+a\+\_\+student\+\_\+from\+\_\+raw\+\_\+text\+\_\+line}} (string \&student\+Raw\+Text, \mbox{\hyperlink{struct_students_data}{Students\+Data}} \&students\+Data, unsigned int student\+\_\+index)
+\item 
+char \mbox{\hyperlink{grade__reporting__v2_8cpp_a33a99a5f31544c673242f09d1f2813a1}{generate\+\_\+grade\+\_\+letter}} (const unsigned int student\+\_\+exam\+\_\+score, const float average\+\_\+exam\+\_\+score)
+\item 
+void \mbox{\hyperlink{grade__reporting__v2_8cpp_a41febbd277c144528df910358a3a126c}{parse\+\_\+number\+\_\+of\+\_\+students\+\_\+and\+\_\+exams}} (const string first\+Line, \mbox{\hyperlink{struct_students_data}{Students\+Data}} \&student\+Data)
+\item 
+\mbox{\hyperlink{struct_students_data}{Students\+Data}} \mbox{\hyperlink{grade__reporting__v2_8cpp_a3fb2f1b211d1da84bb2e5fd2f825df8f}{read\+\_\+student\+\_\+exam\+\_\+scores\+\_\+from\+\_\+file}} (const string \&file\+\_\+path)
+\item 
+unsigned int \mbox{\hyperlink{grade__reporting__v2_8cpp_ac46a3603380b3ccb5732e9c104827d90}{find\+\_\+student\+\_\+name\+\_\+max\+\_\+length}} (\mbox{\hyperlink{struct_students_data}{Students\+Data}} students\+Data)
+\item 
+void \mbox{\hyperlink{grade__reporting__v2_8cpp_ab481307ad9ab1c00a987e4d9d9eda144}{print\+\_\+students\+\_\+data\+\_\+to\+\_\+console}} (\mbox{\hyperlink{struct_students_data}{Students\+Data}} students\+Data)
+\item 
+void \mbox{\hyperlink{grade__reporting__v2_8cpp_af5843a7f2348568a0a554a869b42e810}{export\+\_\+student\+\_\+grades\+\_\+v2\+\_\+to\+\_\+console}} (const string \&file\+\_\+path)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const string \mbox{\hyperlink{grade__reporting__v2_8cpp_a5c3481b339cdd12a1811905a9e63271a}{STUDENT\+\_\+\+NAME\+\_\+\+HEADER}} = \char`\"{}Student Name\char`\"{}
+\item 
+const string \mbox{\hyperlink{grade__reporting__v2_8cpp_a14ad967d3790d229c9780a39112ad49a}{EXAM\+\_\+\+HEADER}} = \char`\"{}Exam\char`\"{}
+\item 
+const string \mbox{\hyperlink{grade__reporting__v2_8cpp_aa8dcb29836f1dfa81a1a2e9d646b996a}{SCORE\+\_\+\+HEADER}} = \char`\"{}Score\char`\"{}
+\item 
+const string \mbox{\hyperlink{grade__reporting__v2_8cpp_a98bdbf13dc5b7845b66376c66a64aaba}{GRADE\+\_\+\+HEADER}} = \char`\"{}Grade\char`\"{}
+\item 
+const char \mbox{\hyperlink{grade__reporting__v2_8cpp_a32d67795a8b119935e98ba0da0d5be5f}{DELIMITER}} = \textquotesingle{} \textquotesingle{}
+\item 
+const char \mbox{\hyperlink{grade__reporting__v2_8cpp_aaf572f2599fc87136bec1e8de1112ad9}{BLANK\+\_\+\+CHARACTER}} = \textquotesingle{} \textquotesingle{}
+\item 
+const char \mbox{\hyperlink{grade__reporting__v2_8cpp_a4cb5ae51545d39c420a79ce1eab1be6a}{PLUS\+\_\+\+CHARACTER}} = \textquotesingle{}+\textquotesingle{}
+\item 
+const char \mbox{\hyperlink{grade__reporting__v2_8cpp_aa90450aad024c0f7ce46dd170fe56c0e}{TABLE\+\_\+\+HORIZONTAL\+\_\+\+BORDER\+\_\+\+CHARACTER}} = \textquotesingle{}-\/\textquotesingle{}
+\item 
+const char \mbox{\hyperlink{grade__reporting__v2_8cpp_a4afe376fcab570ea3ee2413b047778a4}{TABLE\+\_\+\+VERTICAL\+\_\+\+BORDER\+\_\+\+CHARACTER}} = \textquotesingle{}$\vert$\textquotesingle{}
+\item 
+const unsigned int \mbox{\hyperlink{grade__reporting__v2_8cpp_a78e92df798f4a5f584c81aab9ac16805}{EXAM\+\_\+\+HEADER\+\_\+\+PADDING\+\_\+\+WIDTH}} = 3
+\item 
+const unsigned int \mbox{\hyperlink{grade__reporting__v2_8cpp_aaf091710cf7e6877261a11b03c7f7a1a}{NUMBER\+\_\+\+OF\+\_\+\+BORDER\+\_\+\+PER\+\_\+\+EXAM}} = 2
+\item 
+const unsigned int \mbox{\hyperlink{grade__reporting__v2_8cpp_afdb80016e15f4cda2a59b4b5658ecc78}{NUMBER\+\_\+\+OF\+\_\+\+BORDER\+\_\+\+PER\+\_\+\+EXAM\+\_\+\+HEADER}} = 1
+\item 
+const unsigned int \mbox{\hyperlink{grade__reporting__v2_8cpp_a47ced68906ac89356178932c6dbb9a54}{SCORE\+\_\+\+COLUMN\+\_\+\+WITH}} = 5
+\item 
+const unsigned int \mbox{\hyperlink{grade__reporting__v2_8cpp_a411f3892ca88943bb1bdb2c8744e27b1}{GRADE\+\_\+\+COLUMN\+\_\+\+WITH}} = 5
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{grade__reporting__v2_8cpp_af5843a7f2348568a0a554a869b42e810}\label{grade__reporting__v2_8cpp_af5843a7f2348568a0a554a869b42e810}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!export\_student\_grades\_v2\_to\_console@{export\_student\_grades\_v2\_to\_console}}
+\index{export\_student\_grades\_v2\_to\_console@{export\_student\_grades\_v2\_to\_console}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{export\_student\_grades\_v2\_to\_console()}{export\_student\_grades\_v2\_to\_console()}}
+{\footnotesize\ttfamily void export\+\_\+student\+\_\+grades\+\_\+v2\+\_\+to\+\_\+console (\begin{DoxyParamCaption}\item[{const string \&}]{file\+\_\+path }\end{DoxyParamCaption})}
+
+Read a text file mentioned in the grade reporting.\+h, and calculate the average score for each exam, and then based on the average score of each exam, it will calculate the student\textquotesingle{}s letter grade for the exam. Finally, print each exam\textquotesingle{}s score and letter grade for each student to the console in table format.
+
+Parameter(s) \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>} A path to the text file.
+
+Returns\+: N/A \mbox{\Hypertarget{grade__reporting__v2_8cpp_ac46a3603380b3ccb5732e9c104827d90}\label{grade__reporting__v2_8cpp_ac46a3603380b3ccb5732e9c104827d90}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!find\_student\_name\_max\_length@{find\_student\_name\_max\_length}}
+\index{find\_student\_name\_max\_length@{find\_student\_name\_max\_length}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{find\_student\_name\_max\_length()}{find\_student\_name\_max\_length()}}
+{\footnotesize\ttfamily unsigned int find\+\_\+student\+\_\+name\+\_\+max\+\_\+length (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_students_data}{Students\+Data}}}]{students\+Data }\end{DoxyParamCaption})}
+
+Find the max length among names of students
+
+Parameter(s) \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>} A \mbox{\hyperlink{struct_students_data}{Students\+Data}} object
+
+Returns\+: The max length among names of students \mbox{\Hypertarget{grade__reporting__v2_8cpp_a33a99a5f31544c673242f09d1f2813a1}\label{grade__reporting__v2_8cpp_a33a99a5f31544c673242f09d1f2813a1}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!generate\_grade\_letter@{generate\_grade\_letter}}
+\index{generate\_grade\_letter@{generate\_grade\_letter}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{generate\_grade\_letter()}{generate\_grade\_letter()}}
+{\footnotesize\ttfamily char generate\+\_\+grade\+\_\+letter (\begin{DoxyParamCaption}\item[{const unsigned int}]{student\+\_\+exam\+\_\+score,  }\item[{const float}]{average\+\_\+exam\+\_\+score }\end{DoxyParamCaption})}
+
+Generate the exam grade
+
+Parameter(s) \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>} The score of an exam of a student \texorpdfstring{$<$}{<}2\texorpdfstring{$>$}{>} The average score of the exam among students
+
+Returns\+: A character presenting the exam grade \mbox{\Hypertarget{grade__reporting__v2_8cpp_a60ad81d646eac73bd4248ee72f3997a2}\label{grade__reporting__v2_8cpp_a60ad81d646eac73bd4248ee72f3997a2}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!initiate\_students\_data@{initiate\_students\_data}}
+\index{initiate\_students\_data@{initiate\_students\_data}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{initiate\_students\_data()}{initiate\_students\_data()}}
+{\footnotesize\ttfamily void initiate\+\_\+students\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_students_data}{Students\+Data}} \&}]{students\+Data }\end{DoxyParamCaption})}
+
+Initiate \mbox{\hyperlink{struct_students_data}{Students\+Data}}\textquotesingle{}s arrays based on the number students and the number of exams.
+
+Parameter(s) \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>} An \mbox{\hyperlink{struct_students_data}{Students\+Data}} object
+
+Returns\+: N/A \mbox{\Hypertarget{grade__reporting__v2_8cpp_aa28e95e976d3b09cd9f722a6c7e82090}\label{grade__reporting__v2_8cpp_aa28e95e976d3b09cd9f722a6c7e82090}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!parse\_a\_student\_from\_raw\_text\_line@{parse\_a\_student\_from\_raw\_text\_line}}
+\index{parse\_a\_student\_from\_raw\_text\_line@{parse\_a\_student\_from\_raw\_text\_line}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{parse\_a\_student\_from\_raw\_text\_line()}{parse\_a\_student\_from\_raw\_text\_line()}}
+{\footnotesize\ttfamily void parse\+\_\+a\+\_\+student\+\_\+from\+\_\+raw\+\_\+text\+\_\+line (\begin{DoxyParamCaption}\item[{string \&}]{student\+Raw\+Text,  }\item[{\mbox{\hyperlink{struct_students_data}{Students\+Data}} \&}]{students\+Data,  }\item[{unsigned int}]{student\+\_\+index }\end{DoxyParamCaption})}
+
+Parse a student\textquotesingle{} information from a text, and update to \mbox{\hyperlink{struct_students_data}{Students\+Data}} at the provided index.
+
+Parameter(s) \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>} A string object presenting a student information in the text file \texorpdfstring{$<$}{<}2\texorpdfstring{$>$}{>} A \mbox{\hyperlink{struct_students_data}{Students\+Data}} object \texorpdfstring{$<$}{<}3\texorpdfstring{$>$}{>} The student index in the file.
+
+Returns\+: N/A \mbox{\Hypertarget{grade__reporting__v2_8cpp_a41febbd277c144528df910358a3a126c}\label{grade__reporting__v2_8cpp_a41febbd277c144528df910358a3a126c}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!parse\_number\_of\_students\_and\_exams@{parse\_number\_of\_students\_and\_exams}}
+\index{parse\_number\_of\_students\_and\_exams@{parse\_number\_of\_students\_and\_exams}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{parse\_number\_of\_students\_and\_exams()}{parse\_number\_of\_students\_and\_exams()}}
+{\footnotesize\ttfamily void parse\+\_\+number\+\_\+of\+\_\+students\+\_\+and\+\_\+exams (\begin{DoxyParamCaption}\item[{const string}]{first\+Line,  }\item[{\mbox{\hyperlink{struct_students_data}{Students\+Data}} \&}]{student\+Data }\end{DoxyParamCaption})}
+
+Parse number of students and exams from the first line of the text file, and update them to \mbox{\hyperlink{struct_students_data}{Students\+Data}} object
+
+Parameter(s) \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>} The first line of the input text \texorpdfstring{$<$}{<}2\texorpdfstring{$>$}{>} A \mbox{\hyperlink{struct_students_data}{Students\+Data}} object
+
+Returns\+: N/A \mbox{\Hypertarget{grade__reporting__v2_8cpp_ab481307ad9ab1c00a987e4d9d9eda144}\label{grade__reporting__v2_8cpp_ab481307ad9ab1c00a987e4d9d9eda144}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!print\_students\_data\_to\_console@{print\_students\_data\_to\_console}}
+\index{print\_students\_data\_to\_console@{print\_students\_data\_to\_console}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{print\_students\_data\_to\_console()}{print\_students\_data\_to\_console()}}
+{\footnotesize\ttfamily void print\+\_\+students\+\_\+data\+\_\+to\+\_\+console (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_students_data}{Students\+Data}}}]{students\+Data }\end{DoxyParamCaption})}
+
+Print each exam\textquotesingle{}s score and letter grade for each student to the console in table format.
+
+Parameter(s) \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>} A \mbox{\hyperlink{struct_students_data}{Students\+Data}} object
+
+Returns\+: N/A \mbox{\Hypertarget{grade__reporting__v2_8cpp_a3fb2f1b211d1da84bb2e5fd2f825df8f}\label{grade__reporting__v2_8cpp_a3fb2f1b211d1da84bb2e5fd2f825df8f}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!read\_student\_exam\_scores\_from\_file@{read\_student\_exam\_scores\_from\_file}}
+\index{read\_student\_exam\_scores\_from\_file@{read\_student\_exam\_scores\_from\_file}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{read\_student\_exam\_scores\_from\_file()}{read\_student\_exam\_scores\_from\_file()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_students_data}{Students\+Data}} read\+\_\+student\+\_\+exam\+\_\+scores\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{const string \&}]{file\+\_\+path }\end{DoxyParamCaption})}
+
+Parse a text file and return a \mbox{\hyperlink{struct_students_data}{Students\+Data}} object
+
+Parameter(s) \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>} Path to the text file
+
+Returns\+: A \mbox{\hyperlink{struct_students_data}{Students\+Data}} object 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{grade__reporting__v2_8cpp_aaf572f2599fc87136bec1e8de1112ad9}\label{grade__reporting__v2_8cpp_aaf572f2599fc87136bec1e8de1112ad9}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!BLANK\_CHARACTER@{BLANK\_CHARACTER}}
+\index{BLANK\_CHARACTER@{BLANK\_CHARACTER}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{BLANK\_CHARACTER}{BLANK\_CHARACTER}}
+{\footnotesize\ttfamily const char BLANK\+\_\+\+CHARACTER = \textquotesingle{} \textquotesingle{}}
+
+\mbox{\Hypertarget{grade__reporting__v2_8cpp_a32d67795a8b119935e98ba0da0d5be5f}\label{grade__reporting__v2_8cpp_a32d67795a8b119935e98ba0da0d5be5f}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!DELIMITER@{DELIMITER}}
+\index{DELIMITER@{DELIMITER}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{DELIMITER}{DELIMITER}}
+{\footnotesize\ttfamily const char DELIMITER = \textquotesingle{} \textquotesingle{}}
+
+\mbox{\Hypertarget{grade__reporting__v2_8cpp_a14ad967d3790d229c9780a39112ad49a}\label{grade__reporting__v2_8cpp_a14ad967d3790d229c9780a39112ad49a}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!EXAM\_HEADER@{EXAM\_HEADER}}
+\index{EXAM\_HEADER@{EXAM\_HEADER}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{EXAM\_HEADER}{EXAM\_HEADER}}
+{\footnotesize\ttfamily const string EXAM\+\_\+\+HEADER = \char`\"{}Exam\char`\"{}}
+
+\mbox{\Hypertarget{grade__reporting__v2_8cpp_a78e92df798f4a5f584c81aab9ac16805}\label{grade__reporting__v2_8cpp_a78e92df798f4a5f584c81aab9ac16805}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!EXAM\_HEADER\_PADDING\_WIDTH@{EXAM\_HEADER\_PADDING\_WIDTH}}
+\index{EXAM\_HEADER\_PADDING\_WIDTH@{EXAM\_HEADER\_PADDING\_WIDTH}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{EXAM\_HEADER\_PADDING\_WIDTH}{EXAM\_HEADER\_PADDING\_WIDTH}}
+{\footnotesize\ttfamily const unsigned int EXAM\+\_\+\+HEADER\+\_\+\+PADDING\+\_\+\+WIDTH = 3}
+
+\mbox{\Hypertarget{grade__reporting__v2_8cpp_a411f3892ca88943bb1bdb2c8744e27b1}\label{grade__reporting__v2_8cpp_a411f3892ca88943bb1bdb2c8744e27b1}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!GRADE\_COLUMN\_WITH@{GRADE\_COLUMN\_WITH}}
+\index{GRADE\_COLUMN\_WITH@{GRADE\_COLUMN\_WITH}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{GRADE\_COLUMN\_WITH}{GRADE\_COLUMN\_WITH}}
+{\footnotesize\ttfamily const unsigned int GRADE\+\_\+\+COLUMN\+\_\+\+WITH = 5}
+
+\mbox{\Hypertarget{grade__reporting__v2_8cpp_a98bdbf13dc5b7845b66376c66a64aaba}\label{grade__reporting__v2_8cpp_a98bdbf13dc5b7845b66376c66a64aaba}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!GRADE\_HEADER@{GRADE\_HEADER}}
+\index{GRADE\_HEADER@{GRADE\_HEADER}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{GRADE\_HEADER}{GRADE\_HEADER}}
+{\footnotesize\ttfamily const string GRADE\+\_\+\+HEADER = \char`\"{}Grade\char`\"{}}
+
+\mbox{\Hypertarget{grade__reporting__v2_8cpp_aaf091710cf7e6877261a11b03c7f7a1a}\label{grade__reporting__v2_8cpp_aaf091710cf7e6877261a11b03c7f7a1a}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!NUMBER\_OF\_BORDER\_PER\_EXAM@{NUMBER\_OF\_BORDER\_PER\_EXAM}}
+\index{NUMBER\_OF\_BORDER\_PER\_EXAM@{NUMBER\_OF\_BORDER\_PER\_EXAM}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{NUMBER\_OF\_BORDER\_PER\_EXAM}{NUMBER\_OF\_BORDER\_PER\_EXAM}}
+{\footnotesize\ttfamily const unsigned int NUMBER\+\_\+\+OF\+\_\+\+BORDER\+\_\+\+PER\+\_\+\+EXAM = 2}
+
+\mbox{\Hypertarget{grade__reporting__v2_8cpp_afdb80016e15f4cda2a59b4b5658ecc78}\label{grade__reporting__v2_8cpp_afdb80016e15f4cda2a59b4b5658ecc78}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!NUMBER\_OF\_BORDER\_PER\_EXAM\_HEADER@{NUMBER\_OF\_BORDER\_PER\_EXAM\_HEADER}}
+\index{NUMBER\_OF\_BORDER\_PER\_EXAM\_HEADER@{NUMBER\_OF\_BORDER\_PER\_EXAM\_HEADER}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{NUMBER\_OF\_BORDER\_PER\_EXAM\_HEADER}{NUMBER\_OF\_BORDER\_PER\_EXAM\_HEADER}}
+{\footnotesize\ttfamily const unsigned int NUMBER\+\_\+\+OF\+\_\+\+BORDER\+\_\+\+PER\+\_\+\+EXAM\+\_\+\+HEADER = 1}
+
+\mbox{\Hypertarget{grade__reporting__v2_8cpp_a4cb5ae51545d39c420a79ce1eab1be6a}\label{grade__reporting__v2_8cpp_a4cb5ae51545d39c420a79ce1eab1be6a}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!PLUS\_CHARACTER@{PLUS\_CHARACTER}}
+\index{PLUS\_CHARACTER@{PLUS\_CHARACTER}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{PLUS\_CHARACTER}{PLUS\_CHARACTER}}
+{\footnotesize\ttfamily const char PLUS\+\_\+\+CHARACTER = \textquotesingle{}+\textquotesingle{}}
+
+\mbox{\Hypertarget{grade__reporting__v2_8cpp_a47ced68906ac89356178932c6dbb9a54}\label{grade__reporting__v2_8cpp_a47ced68906ac89356178932c6dbb9a54}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!SCORE\_COLUMN\_WITH@{SCORE\_COLUMN\_WITH}}
+\index{SCORE\_COLUMN\_WITH@{SCORE\_COLUMN\_WITH}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{SCORE\_COLUMN\_WITH}{SCORE\_COLUMN\_WITH}}
+{\footnotesize\ttfamily const unsigned int SCORE\+\_\+\+COLUMN\+\_\+\+WITH = 5}
+
+\mbox{\Hypertarget{grade__reporting__v2_8cpp_aa8dcb29836f1dfa81a1a2e9d646b996a}\label{grade__reporting__v2_8cpp_aa8dcb29836f1dfa81a1a2e9d646b996a}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!SCORE\_HEADER@{SCORE\_HEADER}}
+\index{SCORE\_HEADER@{SCORE\_HEADER}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{SCORE\_HEADER}{SCORE\_HEADER}}
+{\footnotesize\ttfamily const string SCORE\+\_\+\+HEADER = \char`\"{}Score\char`\"{}}
+
+\mbox{\Hypertarget{grade__reporting__v2_8cpp_a5c3481b339cdd12a1811905a9e63271a}\label{grade__reporting__v2_8cpp_a5c3481b339cdd12a1811905a9e63271a}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!STUDENT\_NAME\_HEADER@{STUDENT\_NAME\_HEADER}}
+\index{STUDENT\_NAME\_HEADER@{STUDENT\_NAME\_HEADER}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{STUDENT\_NAME\_HEADER}{STUDENT\_NAME\_HEADER}}
+{\footnotesize\ttfamily const string STUDENT\+\_\+\+NAME\+\_\+\+HEADER = \char`\"{}Student Name\char`\"{}}
+
+\mbox{\Hypertarget{grade__reporting__v2_8cpp_aa90450aad024c0f7ce46dd170fe56c0e}\label{grade__reporting__v2_8cpp_aa90450aad024c0f7ce46dd170fe56c0e}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!TABLE\_HORIZONTAL\_BORDER\_CHARACTER@{TABLE\_HORIZONTAL\_BORDER\_CHARACTER}}
+\index{TABLE\_HORIZONTAL\_BORDER\_CHARACTER@{TABLE\_HORIZONTAL\_BORDER\_CHARACTER}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{TABLE\_HORIZONTAL\_BORDER\_CHARACTER}{TABLE\_HORIZONTAL\_BORDER\_CHARACTER}}
+{\footnotesize\ttfamily const char TABLE\+\_\+\+HORIZONTAL\+\_\+\+BORDER\+\_\+\+CHARACTER = \textquotesingle{}-\/\textquotesingle{}}
+
+\mbox{\Hypertarget{grade__reporting__v2_8cpp_a4afe376fcab570ea3ee2413b047778a4}\label{grade__reporting__v2_8cpp_a4afe376fcab570ea3ee2413b047778a4}} 
+\index{grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}!TABLE\_VERTICAL\_BORDER\_CHARACTER@{TABLE\_VERTICAL\_BORDER\_CHARACTER}}
+\index{TABLE\_VERTICAL\_BORDER\_CHARACTER@{TABLE\_VERTICAL\_BORDER\_CHARACTER}!grade\_reporting\_v2.cpp@{grade\_reporting\_v2.cpp}}
+\doxysubsubsection{\texorpdfstring{TABLE\_VERTICAL\_BORDER\_CHARACTER}{TABLE\_VERTICAL\_BORDER\_CHARACTER}}
+{\footnotesize\ttfamily const char TABLE\+\_\+\+VERTICAL\+\_\+\+BORDER\+\_\+\+CHARACTER = \textquotesingle{}$\vert$\textquotesingle{}}
+

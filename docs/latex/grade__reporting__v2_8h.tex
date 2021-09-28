@@ -1,0 +1,37 @@
+\hypertarget{grade__reporting__v2_8h}{}\doxysection{src/grade\+\_\+reporting\+\_\+v2.h File Reference}
+\label{grade__reporting__v2_8h}\index{src/grade\_reporting\_v2.h@{src/grade\_reporting\_v2.h}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{grade__reporting__v2_8h_af5843a7f2348568a0a554a869b42e810}{export\+\_\+student\+\_\+grades\+\_\+v2\+\_\+to\+\_\+console}} (const string \&file\+\_\+path)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{grade__reporting__v2_8h_af5843a7f2348568a0a554a869b42e810}\label{grade__reporting__v2_8h_af5843a7f2348568a0a554a869b42e810}} 
+\index{grade\_reporting\_v2.h@{grade\_reporting\_v2.h}!export\_student\_grades\_v2\_to\_console@{export\_student\_grades\_v2\_to\_console}}
+\index{export\_student\_grades\_v2\_to\_console@{export\_student\_grades\_v2\_to\_console}!grade\_reporting\_v2.h@{grade\_reporting\_v2.h}}
+\doxysubsubsection{\texorpdfstring{export\_student\_grades\_v2\_to\_console()}{export\_student\_grades\_v2\_to\_console()}}
+{\footnotesize\ttfamily void export\+\_\+student\+\_\+grades\+\_\+v2\+\_\+to\+\_\+console (\begin{DoxyParamCaption}\item[{const string \&}]{file\+\_\+path }\end{DoxyParamCaption})}
+
+export\+\_\+student\+\_\+grades\+\_\+v2\+\_\+to\+\_\+console
+
+Purpose\+: Read a text file mentioned above, and calculate the average score for each exam, and then based on the average score of each exam, it will calculate the student\textquotesingle{}s letter grade for the exam. Finally, print each exam\textquotesingle{}s score and letter grade for each student to the console in table format.
+
+For example, the text file contains this data\+: 5 2 SPWKLZWHCIE GAPCEXAS 99 100 FCCEPWNFVV XJME W 89 89 FKAXVFR MAEPR X 79 86 UJSYE DTULCIC A 69 90 UIPXMS SLOVX 59 100
+
+Then, the console output will be like below. +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ $\vert$ $\vert$ Exam 1 $\vert$ Exam 2 $\vert$ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ $\vert$\+Student Name $\vert$\+Score$\vert$\+Grade$\vert$\+Score$\vert$\+Grade$\vert$ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ $\vert$\+SPWKLZWHCIE GAPCEXAS$\vert$ 99$\vert$ A$\vert$ 100$\vert$ B$\vert$ $\vert$\+FCCEPWNFVV XJME W $\vert$ 89$\vert$ B$\vert$ 89$\vert$ C$\vert$ $\vert$\+FKAXVFR MAEPR X $\vert$ 79$\vert$ C$\vert$ 86$\vert$ D$\vert$ $\vert$\+UJSYE DTULCIC A $\vert$ 69$\vert$ D$\vert$ 90$\vert$ C$\vert$ $\vert$\+UIPXMS SLOVX $\vert$ 59$\vert$ F$\vert$ 100$\vert$ B$\vert$ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+
+
+Parameter(s) \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>} file\+\_\+path\+: The path to the student text file.
+
+Precondition(s)\+: N/A
+
+Returns\+: N/A
+
+Side effect\+: N/A
+
+Read a text file mentioned in the grade reporting.\+h, and calculate the average score for each exam, and then based on the average score of each exam, it will calculate the student\textquotesingle{}s letter grade for the exam. Finally, print each exam\textquotesingle{}s score and letter grade for each student to the console in table format.
+
+Parameter(s) \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>} A path to the text file.
+
+Returns\+: N/A 
