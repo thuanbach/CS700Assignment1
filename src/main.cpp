@@ -11,15 +11,31 @@
 
 using namespace std;
 
+/**
+ * The main application of the program. It executes two test data defined in resource folder of the program
+ *
+ * Parameter(s): N/A
+ *
+ * Returns: 0
+ */
+
 int main() {
 
-	string student_exam_scores_raw_file = "resource/grades_Section1.txt";
+	// run program with the first input data set
+	string student_exam_scores_raw_file_1 = "resource/grades_Section1.txt";
 
 	string export_folder = "resource";
 
-	export_student_grades_to_console(student_exam_scores_raw_file);
+	export_student_grades_to_console(student_exam_scores_raw_file_1);
 
-	export_student_grades_to_directory(student_exam_scores_raw_file, export_folder);
+	export_student_grades_to_directory(student_exam_scores_raw_file_1, export_folder);
+
+	// run program with the second input data set
+	string student_exam_scores_raw_file_1_1 = "resource/grades_Section1_1.txt";
+
+	export_student_grades_to_console(student_exam_scores_raw_file_1_1);
+
+	export_student_grades_to_directory(student_exam_scores_raw_file_1_1, export_folder);
 
 	return 0;
 }

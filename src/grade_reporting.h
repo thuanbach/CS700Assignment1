@@ -51,7 +51,9 @@ using namespace std;
  * Parameter(s)
  * <1> file_path: The path to the student text file.
  *
- * Precondition(s): The max length line of the text file is 1000.
+ * Precondition(s):
+ * <1> Exam scores are unsigned integers only.
+ * <2> The max length line of the text file is 1000.
  *
  * Returns: N/A
  *
@@ -82,7 +84,9 @@ void export_student_grades_to_console(const string &file_path);
  * <1> file_path: The path to the text file.
  * <2> export_directory: The directory where the student grades are exported
  *
- * Precondition(s): The max length line of the text file is 1000.
+ * Precondition(s):
+ * <1> Exam scores are unsigned integers only.
+ * <2> The max length line of the text file is 1000.
  *
  * Returns: N/A
  *
