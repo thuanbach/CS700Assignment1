@@ -87,6 +87,7 @@ void export_student_grades_to_console(const string &file_path);
  * Precondition(s):
  * <1> Exam scores are unsigned integers only.
  * <2> The max length line of the text file is 1000.
+ * <3> The export folder must exist.
  *
  * Returns: N/A
  *

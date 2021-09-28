@@ -24,18 +24,16 @@ int main() {
 	// run program with the first input data set
 	string student_exam_scores_raw_file_1 = "resource/grades_Section1.txt";
 
-	string export_folder = "resource";
-
 	export_student_grades_to_console(student_exam_scores_raw_file_1);
 
-	export_student_grades_to_directory(student_exam_scores_raw_file_1, export_folder);
+	export_student_grades_to_directory(student_exam_scores_raw_file_1, "export/1");
 
 	// run program with the second input data set
 	string student_exam_scores_raw_file_1_1 = "resource/grades_Section1_1.txt";
 
 	export_student_grades_to_console(student_exam_scores_raw_file_1_1);
 
-	export_student_grades_to_directory(student_exam_scores_raw_file_1_1, export_folder);
+	export_student_grades_to_directory(student_exam_scores_raw_file_1_1, "export/2");
 
 	return 0;
 }

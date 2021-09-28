@@ -310,7 +310,7 @@ void write_student_grades_to_file(const Student students[], unsigned int number_
                      << quoted(students[i].letter_grade) << endl;
     }
 
-    cout << "Exported successfully";
+    cout << "Exported successfully" << endl;
 
     exportedFile.close();
 }
