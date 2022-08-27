@@ -1,0 +1,59 @@
+\hypertarget{grade__reporting_8h}{}\doxysection{src/grade\+\_\+reporting.h File Reference}
+\label{grade__reporting_8h}\index{src/grade\_reporting.h@{src/grade\_reporting.h}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{grade__reporting_8h_a62cadb9b54d347f26d6242f48d1bb539}{export\+\_\+student\+\_\+grades\+\_\+to\+\_\+console}} (const string \&file\+\_\+path)
+\item 
+void \mbox{\hyperlink{grade__reporting_8h_aaf3831cc603b6df7ba626c863aaccf52}{export\+\_\+student\+\_\+grades\+\_\+to\+\_\+directory}} (const string \&file\+\_\+path, const string \&export\+\_\+directory)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{grade__reporting_8h_a62cadb9b54d347f26d6242f48d1bb539}\label{grade__reporting_8h_a62cadb9b54d347f26d6242f48d1bb539}} 
+\index{grade\_reporting.h@{grade\_reporting.h}!export\_student\_grades\_to\_console@{export\_student\_grades\_to\_console}}
+\index{export\_student\_grades\_to\_console@{export\_student\_grades\_to\_console}!grade\_reporting.h@{grade\_reporting.h}}
+\doxysubsubsection{\texorpdfstring{export\_student\_grades\_to\_console()}{export\_student\_grades\_to\_console()}}
+{\footnotesize\ttfamily void export\+\_\+student\+\_\+grades\+\_\+to\+\_\+console (\begin{DoxyParamCaption}\item[{const string \&}]{file\+\_\+path }\end{DoxyParamCaption})}
+
+export\+\_\+student\+\_\+grades\+\_\+to\+\_\+console
+
+Purpose\+: Read a text file mentioned above and print each student\textquotesingle{}s name, average exam score and letter grade to the console in table-\/like format. For example, the text file has one line with this data\+: SPWKLZWHCIE GAPCEXAS 11 100 88 95 94 98 100 90 71 100 92 98 Then, the console output will be like below. +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ $\vert$ \mbox{\hyperlink{struct_student}{Student}} Name $\vert$ Average Exam Score $\vert$ Grade $\vert$ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ $\vert$ SPWKLZWHCIE GAPCEXAS $\vert$ 93.\+27 $\vert$ A-\/ $\vert$ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+
+
+Parameter(s) \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>} file\+\_\+path\+: The path to the student text file.
+
+Precondition(s)\+: \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>} Exam scores are unsigned integers only. \texorpdfstring{$<$}{<}2\texorpdfstring{$>$}{>} The max length line of the text file is 1000.
+
+Returns\+: N/A
+
+Side effect\+: N/A
+
+Read a text file and print each student\textquotesingle{}s name, average exam score, and letter grade to the console in table-\/like format
+
+Parameter(s) \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>}\+: Path to the text file
+
+Returns\+: N/A \mbox{\Hypertarget{grade__reporting_8h_aaf3831cc603b6df7ba626c863aaccf52}\label{grade__reporting_8h_aaf3831cc603b6df7ba626c863aaccf52}} 
+\index{grade\_reporting.h@{grade\_reporting.h}!export\_student\_grades\_to\_directory@{export\_student\_grades\_to\_directory}}
+\index{export\_student\_grades\_to\_directory@{export\_student\_grades\_to\_directory}!grade\_reporting.h@{grade\_reporting.h}}
+\doxysubsubsection{\texorpdfstring{export\_student\_grades\_to\_directory()}{export\_student\_grades\_to\_directory()}}
+{\footnotesize\ttfamily void export\+\_\+student\+\_\+grades\+\_\+to\+\_\+directory (\begin{DoxyParamCaption}\item[{const string \&}]{file\+\_\+path,  }\item[{const string \&}]{export\+\_\+directory }\end{DoxyParamCaption})}
+
+export\+\_\+student\+\_\+grades\+\_\+to\+\_\+directory
+
+Purpose\+: Read a text file mentioned above and write each student\textquotesingle{}s all information in the text file (student name, number of exam scores, the exam scores), the average exam score, and the letter grade to a CSV file in a provided directory. The CSV file name will be \char`\"{}\+Student\+\_\+\+Grades.\+csv\char`\"{}. The delimiter used in the CSV is the comma. If a student\textquotesingle{}s number of exam scores is less than the maximum number of exam scores, then the student\textquotesingle{}s missing exam scores will be filled with an empty column.
+
+For example, if the text file has 2 lines of data\+: SPWKLZWHCIE GAPCEXAS 11 100 88 95 94 98 100 90 71 100 92 98 UIPXMS SLOVX 5 85 90 100 70 98 Then, the csv file will be like below\+: \mbox{\hyperlink{struct_student}{Student}} Name,Number of Exam Scores,,,,,,,,,,,,Average Exam Score,Grade SPWKLZWHCIE GAPCEXAS,11,100,88,95,94,98,100,90,71,100,92,98,93.\+27,A-\/ UIPXMS SLOVX,5,85,90,100,70,98,,,,,,,88.\+6,B+
+
+Parameter(s) \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>} file\+\_\+path\+: The path to the text file. \texorpdfstring{$<$}{<}2\texorpdfstring{$>$}{>} export\+\_\+directory\+: The directory where the student grades are exported
+
+Precondition(s)\+: \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>} Exam scores are unsigned integers only. \texorpdfstring{$<$}{<}2\texorpdfstring{$>$}{>} The max length line of the text file is 1000.
+
+Returns\+: N/A
+
+Side effect\+: N/A
+
+Read a text file and write each student\textquotesingle{}s all information in the text file (student name, number of exam scores, the exam scores), the average exam score, and the letter grade to a CSV file in a provided directory. The CSV file name will be \char`\"{}\+Student\+\_\+\+Grades.\+csv\char`\"{}.
+
+Parameter(s) \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>} file\+\_\+path\+: The path to the text file. \texorpdfstring{$<$}{<}2\texorpdfstring{$>$}{>} export\+\_\+directory\+: The directory where the student grades are exported
+
+Returns\+: N/A 
